@@ -1,0 +1,6 @@
+Value device_name (.+)
+Value vendor_name (.+)
+
+Start
+  ^\s*DEVICE_NAME\s*: ${device_name}
+  ^\s*VENDOR_NAME\s*: ${vendor_name}

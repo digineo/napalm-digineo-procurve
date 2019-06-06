@@ -1,0 +1,11 @@
+Value port_id (\d+)
+Value type (\S+)
+Value intrusion_alert (\S+)
+Value enabled (\S+)
+Value status (\S+)
+Value mode (\S+)
+Value mdi_mode (\S+)
+Value flow_control (\S+)
+
+Start
+  ^\s+${port_id}\s+${type}\s+\|\s+${intrusion_alert}\s+${enabled}\s+${status}\s+${mode}\s+${mdi_mode}\s+${flow_control} -> Next.Record

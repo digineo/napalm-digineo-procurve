@@ -1,0 +1,13 @@
+Value SystemName (\S*)
+Value SoftwareVer (\S*)
+Value SerialNumber (\S*)
+Value CPUUsage (\d+)
+Value MemoryTotal (\S+)
+Value MemoryFree (\S+)
+
+Start
+  ^\s*System Name        : ${SystemName}
+  ^\s*Software revision  : ${SoftwareVer}
+  ^\s*ROM Version        : \S+\s*          Serial Number      : ${SerialNumber}
+  ^\s*Up Time            : \S+ \S+\s*      Memory   - Total   : ${MemoryTotal}
+  ^\s*CPU Util \(%\)\s+  : ${CPUUsage}\s*             Free    : ${MemoryFree}

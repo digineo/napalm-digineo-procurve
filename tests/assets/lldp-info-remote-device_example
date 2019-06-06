@@ -1,0 +1,109 @@
+ LLDP Remote Device Information Detail
+
+  Local Port   : 3
+  ChassisType  : mac-address
+  ChassisId    : 58 20 b1 aa aa aa
+  PortType     : local
+  PortId       : 9
+  SysName      : switch0102
+  System Descr : HP J9774A 2530-8G-PoEP Switch, revision YA.16.05.0008, RO...
+  PortDescr    : 9
+  Pvid         : 1
+
+  System Capabilities Supported  : bridge
+  System Capabilities Enabled    : bridge
+
+  Remote Management Address
+     Type    : ipv4
+     Address : 172.16.1.31
+     Type    : ipv6
+     Address : 2a06:8780:dead:0:5a20:b1ff:feaa:aaaa
+
+  Poe Plus Information Detail
+
+    Poe Device Type         : Type2 PSE
+    Power Source            : Unknown
+    Power Priority          : Unknown
+    Requested Power Value   : 0.0 Watts
+    Actual Power Value      : 0.0 Watts
+
+------------------------------------------------------------------------------
+  Local Port   : 6
+  ChassisType  : network-address
+  ChassisId    : 172.16.2.14
+  PortType     : local
+  PortId       : 000413AAAAAA:P1
+  SysName      : snom370
+  System Descr : snom;snom370-SIP 8.7.5.35;lid:8.7.5.35
+  PortDescr    : NET PORT
+  Pvid         :
+
+  System Capabilities Supported  : bridge, telephone
+  System Capabilities Enabled    : bridge, telephone
+
+  Remote Management Address
+
+  MED Information Detail
+    EndpointClass          :Class3
+    Media Policy Vlan id   :20
+    Media Policy Priority  :7
+    Media Policy Dscp      :46
+    Media Policy Tagged    :True
+    Poe Device Type        :PD
+    Power Requested        :3.8 W
+    Power Source           :Local & PSE
+    Power Priority         :Unknown
+
+------------------------------------------------------------------------------
+  Local Port   : 9
+  ChassisType  : mac-address
+  ChassisId    : 28 80 23 aa aa ab
+  PortType     : local
+  PortId       : 11
+  SysName      : switch0103
+  System Descr : HP J9776A 2530-24G Switch, revision YA.16.05.0008, ROM YA...
+  PortDescr    : 11
+  Pvid         : 1
+
+  System Capabilities Supported  : bridge
+  System Capabilities Enabled    : bridge
+
+  Remote Management Address
+     Type    : ipv4
+     Address : 172.16.1.32
+     Type    : ipv6
+     Address : 2a06:8780:dead:0:2a80:23ff:feaa:aaab
+
+  Poe Plus Information Detail
+
+    Poe Device Type         : Type2 PSE
+    Power Source            : Unknown
+    Power Priority          : Unknown
+    Requested Power Value   : 0.0 Watts
+    Actual Power Value      : 0.0 Watts
+
+------------------------------------------------------------------------------
+  Local Port   : 10
+  ChassisType  : mac-address
+  ChassisId    : c4 e9 84 aa aa aa
+  PortType     : interface-name
+  PortId       : GigabitEthernet1/0/1
+  SysName      : TL-SG2210P
+  System Descr : 8-Port Gigabit Smart PoE Switch with 2 SFP Slots
+  PortDescr    : GigabitEthernet1/0/1 Interface
+  Pvid         : 1
+
+  System Capabilities Supported  : bridge
+  System Capabilities Enabled    : bridge
+
+  Remote Management Address
+     Type    : ipv4
+     Address : 192.168.0.1
+
+  Poe Plus Information Detail
+
+    Poe Device Type         : Type2 PSE
+    Power Source            : Unknown
+    Power Priority          : Unknown
+    Requested Power Value   : 0.0 Watts
+    Actual Power Value      : 0.0 Watts

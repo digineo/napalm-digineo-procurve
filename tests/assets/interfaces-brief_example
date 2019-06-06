@@ -1,0 +1,16 @@
+
+ Status and Counters - Port Status
+
+                   | Intrusion                           MDI  Flow
+  Port  Type       | Alert     Enabled Status Mode       Mode Ctrl
+  ----- ---------- + --------- ------- ------ ---------- ---- ----
+  1     100/1000T  | No        Yes     Down   1000FDx    MDI  off
+  2     100/1000T  | No        Yes     Up     1000FDx    MDIX off
+  3     100/1000T  | No        Yes     Up     1000FDx    MDIX off
+  4     100/1000T  | No        Yes     Up     1000FDx    MDI  off
+  5     100/1000T  | No        Yes     Down   1000FDx    MDI  off
+  6     100/1000T  | No        Yes     Up     100FDx     MDIX off
+  7     100/1000T  | No        Yes     Down   1000FDx    MDI  off
+  8     100/1000T  | No        Yes     Up     100FDx     MDI  off
+  9     100/1000T  | No        Yes     Up     1000FDx    MDI  off
+  10    100/1000T  | No        Yes     Up     1000FDx    MDI  off

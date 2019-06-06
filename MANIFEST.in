@@ -1,0 +1,17 @@
+include LICENSE.md
+
+graft src
+graft tests
+graft examples
+
+include .editorconfig
+
+include LICENSE.md
+include README.md
+
+include Pipfile Pipfile.lock
+include tox.ini
+
+include reports/.gitkeep
+
+global-exclude *.py[cod] __pycache__ *.so *.dylib

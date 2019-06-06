@@ -1,0 +1,6 @@
+Value List key ([^:]+?)
+Value List value (.*)
+
+Start
+  ^\s+${key}\s+:\s+${value} -> Continue
+  ^-{3,} -> Next.Record
