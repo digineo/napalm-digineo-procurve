@@ -118,6 +118,7 @@ workflows:
       - test-python35
       - check
       - deploy:
+          context: PyPI Deploy
           requires:
             - test-python37
             - test-python36
