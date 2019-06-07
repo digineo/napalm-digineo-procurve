@@ -5,6 +5,7 @@ graft examples
 include LICENSE.md
 include README.md
 
+include .bumpversion.cfg
 include .editorconfig
 include activate
 include Pipfile Pipfile.lock
