@@ -1,20 +1,19 @@
-import dataclasses
-
+import attr
 import netmiko
 
 import napalm_digineo_procurve.templates.parser
 
 
-@dataclasses.dataclass()
+@attr.s()
 class SystemInformation:
-    hostname: str
-    os_version: str
-    serial_number: str
+    hostname = attr.ib()  # type: str
+    os_version = attr.ib()  # type: str
+    serial_number = attr.ib()  # type: str
 
-    cpu_utilization: float
+    cpu_utilization = attr.ib()  # type: float
 
-    memory_total: int
-    memory_free: int
+    memory_total = attr.ib()  # type: int
+    memory_free = attr.ib()  # type: int
 
 
 def parse_response(raw_data: str) -> SystemInformation:

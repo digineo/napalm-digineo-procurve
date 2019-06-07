@@ -1,14 +1,13 @@
-import dataclasses
-
+import attr
 import netmiko
 
 import napalm_digineo_procurve.templates.parser
 
 
-@dataclasses.dataclass()
+@attr.s()
 class DeviceInformation:
-    device_name: str
-    vendor_name: str
+    device_name = attr.ib()  # type: str
+    vendor_name = attr.ib()  # type: str
 
 
 def parse_response(raw_data: str) -> DeviceInformation:

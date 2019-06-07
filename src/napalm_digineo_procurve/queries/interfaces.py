@@ -1,21 +1,21 @@
-import dataclasses
 import typing
 
+import attr
 import netmiko
 
 import napalm_digineo_procurve.templates.parser
 
 
-@dataclasses.dataclass()
+@attr.s()
 class Interface:
-    port_id: str
-    type: str
-    intrusion_alert: str
-    enabled: str
-    status: str
-    mode: str
-    mdi_mode: str
-    flow_control: str
+    port_id = attr.ib()  # type: str
+    type = attr.ib()  # type: str
+    intrusion_alert = attr.ib()  # type: str
+    enabled = attr.ib()  # type: str
+    status = attr.ib()  # type: str
+    mode = attr.ib()  # type: str
+    mdi_mode = attr.ib()  # type: str
+    flow_control = attr.ib()  # type: str
 
 
 def parse_response(raw_data: str) -> typing.Sequence[Interface]:
