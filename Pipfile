@@ -10,5 +10,6 @@ pytest-cov = "*"
 check-manifest = "*"
 tox = "*"
 napalm-digineo-procurve = {editable = true,path = "."}
+bumpversion = "*"
 
 [packages]
