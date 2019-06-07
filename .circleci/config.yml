@@ -14,13 +14,13 @@ jobs:
       - run:
           command: |
             pip install --user pipenv
-            pipenv install --dev
+            ~/.local/bin/~/.local/bin/pipenv install --dev
       - save_cache:
           key: deps-py37-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:
             - ".venv"
-            - "~/.local/lib/"
-      - run: pipenv run tox -e py37,report
+            - "~/.local/"
+      - run: ~/.local/bin/pipenv run tox -e py37,report
 
   test-python36:
     docker:
@@ -35,13 +35,13 @@ jobs:
       - run:
           command: |
             pip install --user pipenv
-            pipenv install --dev
+            ~/.local/bin/pipenv install --dev
       - save_cache:
           key: deps-py36-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:
             - ".venv"
-            - "~/.local/lib/"
-      - run: pipenv run tox -e py36,report
+            - "~/.local/"
+      - run: ~/.local/bin/pipenv run tox -e py36,report
 
   test-python35:
     docker:
@@ -56,13 +56,13 @@ jobs:
       - run:
           command: |
             pip install --user pipenv
-            pipenv install --dev
+            ~/.local/bin/pipenv install --dev
       - save_cache:
           key: deps-py35-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:
             - ".venv"
-            - "~/.local/lib/"
-      - run: pipenv run tox -e py35,report
+            - "~/.local/"
+      - run: ~/.local/bin/pipenv run tox -e py35,report
 
 workflows:
   version: 2
