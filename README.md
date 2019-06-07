@@ -1,5 +1,7 @@
 # Napalm Aruba
 
+[![CircleCI](https://circleci.com/gh/digineo/napalm-digineo-procurve.svg?style=svg)](https://circleci.com/gh/digineo/napalm-digineo-procurve)
+
 Napalm driver for aruba procurve switches. Written to be used in combination with netbox.
 
 
