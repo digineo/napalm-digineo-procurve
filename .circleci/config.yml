@@ -20,7 +20,7 @@ jobs:
           paths:
             - ".venv"
             - "~/.local/"
-      - run: ~/.local/bin/pipenv run tox -e clean,check,py37,report
+      - run: ~/.local/bin/pipenv run tox -e clean,py37,report
 
   test-python36:
     docker:
@@ -41,7 +41,7 @@ jobs:
           paths:
             - ".venv"
             - "~/.local/"
-      - run: ~/.local/bin/pipenv run tox -e clean,check,py36,report
+      - run: ~/.local/bin/pipenv run tox -e clean,py36,report
 
   test-python35:
     docker:
@@ -62,7 +62,28 @@ jobs:
           paths:
             - ".venv"
             - "~/.local/"
-      - run: ~/.local/bin/pipenv run tox -e clean,check,py35,report
+      - run: ~/.local/bin/pipenv run tox -e clean,py35,report
+
+  check:
+    docker:
+      - image: python:3.7-stretch
+        environment:
+          PIPENV_VENV_IN_PROJECT: true
+    working_directory: ~/circleci
+    steps:
+      - checkout
+      - restore_cache:
+          key: deps-check-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+      - run:
+          command: |
+            pip install --user pipenv
+            ~/.local/bin/pipenv install --python python3.7 --dev
+      - save_cache:
+          key: deps-check-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+          paths:
+            - ".venv"
+            - "~/.local/"
+      - run: ~/.local/bin/pipenv run tox -e check
 
 workflows:
   version: 2
@@ -71,3 +92,4 @@ workflows:
       - test-python37
       - test-python36
       - test-python35
+      - check
