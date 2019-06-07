@@ -19,9 +19,7 @@ class Interface:
 
 
 def parse_response(raw_data: str) -> typing.Sequence[Interface]:
-    d = napalm_digineo_procurve.templates.parser.parse(
-        raw_data, "interfaces-brief"
-    )
+    d = napalm_digineo_procurve.templates.parser.parse(raw_data, "interfaces-brief")
     return [Interface(*item) for item in d]
 
 
