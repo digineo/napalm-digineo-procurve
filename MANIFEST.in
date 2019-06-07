@@ -1,17 +1,17 @@
-include LICENSE.md
-
 graft src
 graft tests
 graft examples
 
-include .editorconfig
-
 include LICENSE.md
 include README.md
 
+include .editorconfig
+include activate
 include Pipfile Pipfile.lock
+include pyproject.toml
 include tox.ini
 
 include reports/.gitkeep
 
 global-exclude *.py[cod] __pycache__ *.so *.dylib
+prune .circleci
