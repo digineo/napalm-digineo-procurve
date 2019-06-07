@@ -1,13 +1,6 @@
 version: 2
 
 jobs:
-  checkout:
-    working_directory: ~/circleci
-    docker:
-      - image: circleci/python:3.7-stretch
-    steps:
-      - checkout
-
   test-python37:
     docker:
       - image: python:3.7-stretch
@@ -15,6 +8,7 @@ jobs:
           PIPENV_VENV_IN_PROJECT: true
     working_directory: ~/circleci
     steps:
+      - checkout
       - restore_cache:
           key: deps-py37-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       - run:
@@ -35,6 +29,7 @@ jobs:
           PIPENV_VENV_IN_PROJECT: true
     working_directory: ~/circleci
     steps:
+      - checkout
       - restore_cache:
           key: deps-py36-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       - run:
@@ -55,6 +50,7 @@ jobs:
           PIPENV_VENV_IN_PROJECT: true
     working_directory: ~/circleci
     steps:
+      - checkout
       - restore_cache:
           key: deps-py35-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       - run:
@@ -72,13 +68,6 @@ workflows:
   version: 2
   test:
     jobs:
-      - checkout
-      - test-python37:
-          requires:
-            - checkout
-      - test-python36:
-          requires:
-            - checkout
-      - test-python35:
-          requires:
-            - checkout
+      - test-python37
+      - test-python36
+      - test-python35
