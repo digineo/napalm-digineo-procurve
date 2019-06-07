@@ -12,6 +12,3 @@ tox = "*"
 napalm-digineo-procurve = {editable = true,path = "."}
 
 [packages]
-
-[pipenv]
-allow_prereleases = true
