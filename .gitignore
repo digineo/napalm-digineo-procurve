@@ -10,6 +10,7 @@ __pycache__/
 *$py.class
 
 # Distribution / packaging
+/pip-wheel-metadata/
 /build/
 /dist/
 *.egg-info/

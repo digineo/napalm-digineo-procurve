@@ -9,9 +9,10 @@ pytest = "*"
 pytest-cov = "*"
 pytest-travis-fold = "*"
 check-manifest = "*"
+tox = "*"
+napalm-digineo-procurve = {editable = true,path = "."}
 
 [packages]
-napalm-digineo-procurve = {editable = true,path = "."}
 
 [requires]
 python_version = "3.7"
