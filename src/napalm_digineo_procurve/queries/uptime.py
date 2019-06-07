@@ -15,5 +15,5 @@ def query(device: netmiko.BaseConnection):
     if not m:
         raise UnexpectedResponse()
 
-    factors = {"d": 86_400.0, "H": 3_600.0, "M": 60.0, "S": 1.0, "f": 0.1}
+    factors = {"d": 86400.0, "H": 3600.0, "M": 60.0, "S": 1.0, "f": 0.1}
     return sum(factors[k] * float(v) for k, v in m.groupdict().items())
