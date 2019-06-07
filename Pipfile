@@ -7,7 +7,6 @@ verify_ssl = true
 pathlib2 = "~=2.3.3"
 pytest = "*"
 pytest-cov = "*"
-pytest-travis-fold = "*"
 check-manifest = "*"
 tox = "*"
 napalm-digineo-procurve = {editable = true,path = "."}
