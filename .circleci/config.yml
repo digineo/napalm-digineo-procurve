@@ -1,24 +1,84 @@
 version: 2
 
 jobs:
-  build:
+  checkout:
     working_directory: ~/circleci
-    docker: # run the steps with Docker
+    docker:
       - image: circleci/python:3.7-stretch
-        environment: # environment variables for primary container
-          PIPENV_VENV_IN_PROJECT: true
-    steps: # steps that comprise the `build` job
+    steps:
       - checkout
+
+  test-python37:
+    docker:
+      - image: python:3.7-stretch
+        environment:
+          PIPENV_VENV_IN_PROJECT: true
+    working_directory: ~/circleci
+    steps:
       - restore_cache:
-          key: deps-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+          key: deps-py37-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       - run:
           command: |
             pip install --user pipenv
             pipenv install --dev
       - save_cache:
-          key: deps-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+          key: deps-py37-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:
             - ".venv"
             - "~/.local/lib/"
+      - run: pipenv run tox -e py37,report
+
+  test-python36:
+    docker:
+      - image: python:3.6-stretch
+        environment:
+          PIPENV_VENV_IN_PROJECT: true
+    working_directory: ~/circleci
+    steps:
+      - restore_cache:
+          key: deps-py36-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       - run:
-          command: pipenv run tox
+          command: |
+            pip install --user pipenv
+            pipenv install --dev
+      - save_cache:
+          key: deps-py36-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+          paths:
+            - ".venv"
+            - "~/.local/lib/"
+      - run: pipenv run tox -e py36,report
+
+  test-python35:
+    docker:
+      - image: python:3.5-stretch
+        environment:
+          PIPENV_VENV_IN_PROJECT: true
+    working_directory: ~/circleci
+    steps:
+      - restore_cache:
+          key: deps-py35-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+      - run:
+          command: |
+            pip install --user pipenv
+            pipenv install --dev
+      - save_cache:
+          key: deps-py35-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+          paths:
+            - ".venv"
+            - "~/.local/lib/"
+      - run: pipenv run tox -e py35,report
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - checkout
+      - test-python37:
+          requires:
+            - checkout
+      - test-python36:
+          requires:
+            - checkout
+      - test-python35:
+          requires:
+            - checkout
