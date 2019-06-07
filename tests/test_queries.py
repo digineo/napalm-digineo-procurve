@@ -9,7 +9,7 @@ import napalm_digineo_procurve.queries.lldp_neighbors
 
 
 def load_asset(asset_name: str):
-    p: pathlib.Path = pathlib.Path(__file__).parent / "assets" / asset_name
+    p = pathlib.Path(__file__).parent / "assets" / asset_name
     return p.read_text()
 
 
