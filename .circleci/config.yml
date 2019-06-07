@@ -85,6 +85,30 @@ jobs:
             - "~/.local/"
       - run: ~/.local/bin/pipenv run tox -e check
 
+  deploy:
+    docker:
+      - image: python:3.7-stretch
+        environment:
+          PIPENV_VENV_IN_PROJECT: true
+    working_directory: ~/circleci
+    steps:
+      - checkout
+      - restore_cache:
+          key: deps-deploy-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+      - run:
+          command: |
+            pip install --user pipenv
+            ~/.local/bin/pipenv install --python python3.7 --dev
+      - save_cache:
+          key: deps-deploy-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+          paths:
+            - ".venv"
+            - "~/.local/"
+      - run:
+          command: |
+            pipenv run python setup.py sdist bdist_wheel
+            pipenv run twine upload dist/*
+
 workflows:
   version: 2
   test:
@@ -93,3 +117,14 @@ workflows:
       - test-python36
       - test-python35
       - check
+      - deploy:
+          requires:
+            - test-python37
+            - test-python36
+            - test-python35
+            - check
+          filters:
+            tags:
+              only: /[0-9]+(\.[0-9]+)*/
+            branches:
+              ignore: /.*/
