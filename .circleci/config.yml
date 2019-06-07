@@ -21,4 +21,4 @@ jobs:
             - ".venv"
             - "~/.local/lib/"
       - run:
-          command: tox
+          command: pipenv run tox
