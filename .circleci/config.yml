@@ -20,7 +20,7 @@ jobs:
           paths:
             - ".venv"
             - "~/.local/"
-      - run: ~/.local/bin/pipenv run tox -e py37,report
+      - run: ~/.local/bin/pipenv run tox -e clean,check,py37,report
 
   test-python36:
     docker:
@@ -41,7 +41,7 @@ jobs:
           paths:
             - ".venv"
             - "~/.local/"
-      - run: ~/.local/bin/pipenv run tox -e py36,report
+      - run: ~/.local/bin/pipenv run tox -e clean,check,py36,report
 
   test-python35:
     docker:
@@ -62,7 +62,7 @@ jobs:
           paths:
             - ".venv"
             - "~/.local/"
-      - run: ~/.local/bin/pipenv run tox -e py35,report
+      - run: ~/.local/bin/pipenv run tox -e clean,check,py35,report
 
 workflows:
   version: 2

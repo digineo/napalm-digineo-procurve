@@ -1,6 +1,9 @@
 import typing
 
-import importlib_resources
+try:
+    import importlib.resources as importlib_resources
+except ImportError:
+    import importlib_resources
 import textfsm
 
 assets_package = ".".join(__name__.split(".")[:-1] + ["assets"])

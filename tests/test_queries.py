@@ -1,9 +1,11 @@
+try:
+    import pathlib
+except ImportError:
+    import pathlib2 as pathlib
+
 import napalm_digineo_procurve.queries.device_info
 import napalm_digineo_procurve.queries.interfaces
 import napalm_digineo_procurve.queries.lldp_neighbors
-
-
-import pathlib
 
 
 def load_asset(asset_name: str):
